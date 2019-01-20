@@ -46,8 +46,22 @@ class App extends ReactQueryParams  {
     this.updateInventory = this.updateInventory.bind(this);
     this.connectToWebsocket = this.connectToWebsocket.bind(this);
     if (trackerKeyParam !== undefined) {
-      this.connectToWebsocket(trackerKeyParam)
+      let trackerWebsocket = new WebSocket('ws://127.0.0.1:1337')
+      trackerWebsocket.onopen = () => {trackerWebsocket.send(trackerKeyParam)}
+      trackerWebsocket.onmessage = (message) => {
+        
+        let inv = message.data.split(",").map((element) => {
+          return parseInt(element)
+        });;
+
+        this.setState(prevState => ({
+          playerInventory: inv
+        }))
+      }
+
+      this.state.socket = trackerWebsocket
     }
+
   }
  
   connectToWebsocket(newTrackerKey){
