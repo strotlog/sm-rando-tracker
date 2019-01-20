@@ -1,0 +1,38 @@
+.item {
+    margin: 0;
+    display: inline-block;
+    align-self: auto
+  }
+  
+  .item-image {  
+    height: 48px;
+    width: 48px;
+    opacity: .25;
+  }
+  
+  .collected {
+    opacity: 1;
+  }
+
+  .trackerItems {
+    width: 260px;
+    height: 220px;
+    padding-top: 10px;
+  }
+  .tracker {
+    display: grid;
+  }
+  .trackerBorder {
+    display: inline;
+    background-image: url(/background/frame.png)
+  }
+  .trackerContainer {
+    padding: 10px;
+    display: inline-flex;
+    flex-wrap: wrap;
+  }
+
+  .allTrackers {
+    display: flex;
+    flex-wrap: wrap;
+  }
