@@ -7,9 +7,9 @@
     "start": "concurrently -kill-others \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && node index.js",
     "frontend": "cd frontend && npm start",
-    "build": "concurrently \"cd frontend && npm run build\" \"cd backend && npm install\"",
+    "build": "cd frontend && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cd backend && npm install"
+    "postinstall": "concurrently \"cd frontend && npm install\" \"cd backend && npm install\""
   },
   "repository": {
     "type": "git",
