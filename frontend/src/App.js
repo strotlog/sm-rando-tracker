@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import ReactQueryParams from 'react-query-params';
 import './App.css';
 import './items.css';
 
@@ -30,18 +31,23 @@ const itemList = [
 ]
 
 
-class App extends Component {
+class App extends ReactQueryParams  {
 
   constructor(props) {
     super(props)
+    let trackerKeyParam = this.queryParams.trackerKey;
+    
     this.state = {
       socket: undefined,
       playerInventory: [0,0,0,0],
-      trackerKey: 'smrandoleague'
+      trackerKey: trackerKeyParam
     }
     
     this.updateInventory = this.updateInventory.bind(this);
     this.connectToWebsocket = this.connectToWebsocket.bind(this);
+    if (trackerKeyParam !== undefined) {
+      this.connectToWebsocket(trackerKeyParam)
+    }
   }
  
   connectToWebsocket(newTrackerKey){
