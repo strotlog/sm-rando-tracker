@@ -7,6 +7,8 @@ import './items.css';
 import TrackerKeyInput from './components/trackerKeyInput'
 import Tracker from './components/tracker'
 
+const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com:1337'
+
 const itemList = [
   {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
   {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
@@ -46,7 +48,7 @@ class App extends ReactQueryParams  {
     this.updateInventory = this.updateInventory.bind(this);
     this.connectToWebsocket = this.connectToWebsocket.bind(this);
     if (trackerKeyParam !== undefined) {
-      let trackerWebsocket = new WebSocket('ws://sm-rando-tracker.herokuapp.com:1337')
+      let trackerWebsocket = new WebSocket(webSocketLocation)
       trackerWebsocket.onopen = () => {trackerWebsocket.send(trackerKeyParam)}
       trackerWebsocket.onmessage = (message) => {
         
@@ -72,7 +74,7 @@ class App extends ReactQueryParams  {
     }
 
     console.log("connecting to " + newTrackerKey)
-    let trackerWebsocket = new WebSocket('ws://sm-rando-tracker.herokuapp.com:1337')
+    let trackerWebsocket = new WebSocket(webSocketLocation)
     trackerWebsocket.onopen = () => {trackerWebsocket.send(newTrackerKey)}
     trackerWebsocket.onmessage = (message) => {
       
