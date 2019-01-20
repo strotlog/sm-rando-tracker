@@ -46,7 +46,7 @@ class App extends ReactQueryParams  {
     this.updateInventory = this.updateInventory.bind(this);
     this.connectToWebsocket = this.connectToWebsocket.bind(this);
     if (trackerKeyParam !== undefined) {
-      let trackerWebsocket = new WebSocket('ws://127.0.0.1:1337')
+      let trackerWebsocket = new WebSocket('ws://sm-rando-tracker.herokuapp.com:1337')
       trackerWebsocket.onopen = () => {trackerWebsocket.send(trackerKeyParam)}
       trackerWebsocket.onmessage = (message) => {
         
@@ -72,7 +72,7 @@ class App extends ReactQueryParams  {
     }
 
     console.log("connecting to " + newTrackerKey)
-    let trackerWebsocket = new WebSocket('ws://127.0.0.1:1337')
+    let trackerWebsocket = new WebSocket('ws://sm-rando-tracker.herokuapp.com:1337')
     trackerWebsocket.onopen = () => {trackerWebsocket.send(newTrackerKey)}
     trackerWebsocket.onmessage = (message) => {
       
