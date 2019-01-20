@@ -21,7 +21,6 @@ class TrackerKeyInput extends React.Component {
     }
 
     render() {
-      const trackerKey = this.props.trackerKey;
       return (
         <fieldset>
           <legend>Enter Tracker Key:</legend>

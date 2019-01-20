@@ -47,9 +47,13 @@ class App extends ReactQueryParams  {
     
     this.updateInventory = this.updateInventory.bind(this);
     this.connectToWebsocket = this.connectToWebsocket.bind(this);
+
     if (trackerKeyParam !== undefined) {
       let trackerWebsocket = new WebSocket(webSocketLocation)
-      trackerWebsocket.onopen = () => {trackerWebsocket.send(trackerKeyParam)}
+      trackerWebsocket.onopen = () => {        
+        console.log("Connected!")
+        trackerWebsocket.send(trackerKeyParam)
+      }
       trackerWebsocket.onmessage = (message) => {
         
         let inv = message.data.split(",").map((element) => {
@@ -75,7 +79,10 @@ class App extends ReactQueryParams  {
 
     console.log("connecting to " + newTrackerKey)
     let trackerWebsocket = new WebSocket(webSocketLocation)
-    trackerWebsocket.onopen = () => {trackerWebsocket.send(newTrackerKey)}
+    trackerWebsocket.onopen = () => {
+      console.log("Connected!")
+      trackerWebsocket.send(newTrackerKey)
+    }
     trackerWebsocket.onmessage = (message) => {
       
       let inv = message.data.split(",").map((element) => {
