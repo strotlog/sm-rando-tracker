@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/toddcblank/sm-rando-tracker#readme",
   "dependencies": {
-    "concurrently": "^4.0.1"
+    "concurrently": "^4.0.1",
+    "http-proxy-middleware": "^0.19.1"
   }
 }

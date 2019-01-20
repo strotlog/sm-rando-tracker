@@ -3,12 +3,19 @@ import React, { Component } from 'react'
 class TrackerKeyInput extends React.Component {
     constructor(props) {
       super(props);
-      this.handleChange = this.handleChange.bind(this);
-      this.handleTrackerKeyChange = this.handleTrackerKeyChange.bind(this);
+
+      let defaultTrackerKey = ""
+      if (this.props.trackerKey !== undefined) {
+        defaultTrackerKey = this.props.trackerKey
+      }
+
       this.state = {
         connected: false,
-        trackerKey: this.props.trackerKey
+        trackerKey: defaultTrackerKey
       }
+      
+      this.handleChange = this.handleChange.bind(this);
+      this.handleTrackerKeyChange = this.handleTrackerKeyChange.bind(this);
     }
   
     handleChange(e) {

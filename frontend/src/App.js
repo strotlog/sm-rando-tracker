@@ -7,8 +7,8 @@ import './items.css';
 import TrackerKeyInput from './components/trackerKeyInput'
 import Tracker from './components/tracker'
 
-const webSocketLocation = 'ws://sm-rando-tracker.herokuapp.com:1337'
-// const webSocketLocation = 'wss://localhost'
+const webSocketLocation = 'ws://sm-rando-tracker.herokuapp.com/api'
+// const webSocketLocation = 'ws://localhost:3000/api'
 
 const itemList = [
   {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
