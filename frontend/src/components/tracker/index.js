@@ -26,6 +26,7 @@ class Tracker extends React.Component {
                             collectionSlot={item.collectionSlot}
                             collected={(this.props.inventory & item.collectionSlot) > 0}
                             onItemToggle={this.onItemToggle}
+                            startLit={item.startingState}
                             />
                         )}
                     </div>

@@ -10,7 +10,7 @@ class TrackerKeyInput extends React.Component {
       }
 
       this.state = {
-        connected: false,
+        connected: this.props.trackerKey !== undefined,
         trackerKey: defaultTrackerKey
       }
       
