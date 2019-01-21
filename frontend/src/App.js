@@ -12,12 +12,14 @@ const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
 
 const itemList = [
 
+
+  {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
+  {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
+  {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
+  {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
+  {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
   
-  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},
-  {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
-  {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
-  {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
-  {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
+  
 
   
   {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:            1 << 14},
@@ -30,16 +32,22 @@ const itemList = [
 
   {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:             1 << 5},
   {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:        1 << 13},  
-  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},
+  
+  {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
   {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
   {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
 
-  {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
-  {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
-  {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
-  {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
-  {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
   
+  // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},
+  
+  {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},
+  {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
+  {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
+  {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
+  {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 20},
+  
+  // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},
+
   
   // {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:    1 << 6},
 

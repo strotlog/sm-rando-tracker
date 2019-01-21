@@ -1,12 +1,12 @@
 .item {
-    margin: 0;
+    margin: 2px;
     display: inline-block;
     align-self: auto
   }
   
   .item-image {  
-    height: 35px;
-    width: 35px;
+    height: 32px;
+    width: 32px;
     opacity: .25;
   }
   
