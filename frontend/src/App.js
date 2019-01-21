@@ -7,7 +7,7 @@ import './items.css';
 import TrackerKeyInput from './components/trackerKeyInput'
 import Tracker from './components/tracker'
 
-const webSocketLocation = 'ws://sm-rando-tracker.herokuapp.com/api'
+const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
 // const webSocketLocation = 'ws://localhost:3000/api'
 
 const itemList = [
@@ -33,7 +33,7 @@ const itemList = [
   {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},
   {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
   {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
-  
+
   {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
   {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
   {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
