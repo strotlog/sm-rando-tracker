@@ -5,8 +5,8 @@
   }
   
   .item-image {  
-    height: 48px;
-    width: 48px;
+    height: 35px;
+    width: 35px;
     opacity: .25;
   }
   
@@ -15,9 +15,9 @@
   }
 
   .trackerItems {
-    width: 260px;
-    height: 220px;
-    padding-top: 10px;
+    width: 206px;
+    height: 165px;
+    padding-top: 5px;
   }
   .tracker {
     display: grid;
