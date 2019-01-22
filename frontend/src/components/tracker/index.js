@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Item from '../item'
 
 class Tracker extends React.Component {

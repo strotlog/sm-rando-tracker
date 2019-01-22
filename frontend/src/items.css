@@ -1,6 +1,6 @@
 .item {
     margin: 2px;
-    display: inline-block;
+    display: inline-grid;
     align-self: auto
   }
   
@@ -13,16 +13,16 @@
   .collected {
     opacity: 1;
   }
-
+/* 
   .trackerItems {
 
-  }
+  } 
+  */
 
   .tracker {
-    display: grid;
+    display: inline-grid;
   }
   .trackerBorder {
-    display: inline;
     border-width: 2px;
     border-color: #736f6f;
     border-style: solid;
@@ -39,4 +39,8 @@
     display: flex;
     flex-wrap: wrap;
     height: auto;
+  }
+
+  .instructions {
+    font-size: 12px
   }
