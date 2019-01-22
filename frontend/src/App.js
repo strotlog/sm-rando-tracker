@@ -7,8 +7,8 @@ import TrackerKeyInput from   './components/trackerKeyInput'
 import Tracker from           './components/tracker'
 import ConnectionStatus from  './components/connectionStatus'
 
-// const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
-const webSocketLocation = 'ws://localhost:3000/api'
+const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
+// const webSocketLocation = 'ws://localhost:3000/api'
 
 const itemList = [
 
