@@ -15,24 +15,28 @@
   }
 
   .trackerItems {
-    width: 206px;
-    height: 165px;
-    padding-top: 5px;
+
   }
+
   .tracker {
     display: grid;
   }
   .trackerBorder {
     display: inline;
-    background-image: url(/background/frame.png)
+    border-width: 2px;
+    border-color: #736f6f;
+    border-style: solid;
+    background-color: black;
   }
   .trackerContainer {
     padding: 10px;
     display: inline-flex;
     flex-wrap: wrap;
+    width: 184px;
   }
 
   .allTrackers {
     display: flex;
     flex-wrap: wrap;
+    height: auto;
   }
