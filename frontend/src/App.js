@@ -60,6 +60,7 @@ class App extends ReactQueryParams  {
     this.clearInventories = this.clearInventories.bind(this);
     this.connectToNewTrackerKey = this.connectToNewTrackerKey.bind(this);
     this.simulateWebSocketDc = this.simulateWebSocketDc.bind(this)
+    this.checkWebSocketConnection = this.checkWebSocketConnection.bind(this)
     this.addPlayer = this.addPlayer.bind(this);
 
     if (trackerKeyParam !== undefined) {
@@ -67,8 +68,20 @@ class App extends ReactQueryParams  {
         this.state.socket = trackerWebsocket
     }
 
+    setInterval(this.checkWebSocketConnection, 5000);
+
   }
  
+  checkWebSocketConnection() {
+    if (this.state.trackerKey === undefined || (this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN)) {
+        //everything is a-ok!
+        return;
+    }
+
+    //we've dropped, let's reconnect
+    this.connectToNewTrackerKey(this.state.trackerKey);
+  }
+
   clearInventories() {
     
     this.state.playerInventory.map((inventory, playerIndex) => {
@@ -93,7 +106,7 @@ class App extends ReactQueryParams  {
 
   connectToWebsocket(newTrackerKey){
 
-    if (this.state.socket !== undefined && this.state.socket.readyStatus === this.state.socket.OPEN) {
+    if (this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN) {
       //do nothing already connected
       return
     }
