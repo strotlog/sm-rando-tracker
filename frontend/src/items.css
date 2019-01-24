@@ -1,35 +1,44 @@
 .item {
     margin: 2px;
     display: inline-grid;
-    align-self: auto
+    align-self: auto;
+    width: 17%;
+    font-size: 0
   }
   
   .item-image {  
-    height: 32px;
-    width: 32px;
+    width: 100%;
     opacity: .25;
+    font-size: 0;
   }
   
   .collected {
     opacity: 1;
   }
-/* 
+
   .trackerItems {
-
+    background-color: black;
+    font-size: 0;
   } 
-  */
+ 
 
+  .restreamedTracker {
+    width: 100%;    
+    display: grid;
+    background-color: black;
+  }
   .tracker {
-    display: inline-grid;
+    display: grid;
+    flex-wrap: wrap;
+    width: 184px;    
+    padding: 10px;
   }
   .trackerBorder {
     border-width: 2px;
     border-color: #736f6f;
     border-style: solid;
-    background-color: black;
   }
   .trackerContainer {
-    padding: 10px;
     display: inline-flex;
     flex-wrap: wrap;
     width: 184px;
@@ -43,4 +52,12 @@
 
   .instructions {
     font-size: 12px
+  }
+
+  .hidden {
+    display: none
+  }
+
+  a {
+    color: white
   }
