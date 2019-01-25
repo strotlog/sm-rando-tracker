@@ -68,7 +68,7 @@ class App extends ReactQueryParams  {
         this.state.socket = trackerWebsocket
     }
 
-    setInterval(this.checkWebSocketConnection, 5000);
+    // setInterval(this.checkWebSocketConnection, 5000);
 
   }
  

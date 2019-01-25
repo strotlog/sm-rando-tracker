@@ -16,18 +16,6 @@ var server = http.createServer(function (request, response) {
 
 server.listen(1337, function () { });
 
-
-function pingClients() {
-   Object.keys(perTrackerClients).forEach((key) => {
-        clients = perTrackerClients[key]
-        payload = getTrackerDataForKey(key)
-        clients.forEach((client) => {client.sendUTF(payload)})
-   })
-}
-
-//Keep-alive, to make sure clients don't DC
-setInterval(pingClients, 25000);
-
 // create the server
 wsServer = new WebSocketServer({
     httpServer: server
