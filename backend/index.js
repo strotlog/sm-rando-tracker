@@ -37,6 +37,7 @@ wsServer.on('request', function (request) {
                     perTrackerClients[trackerKey] = []
                 }                
                 perTrackerClients[trackerKey].push(connection)
+                console.log("Connecting to tracker [" + trackerKey + "]")
                 connection.sendUTF(getTrackerDataForKey(trackerKey))
             } else {
                 // process WebSocket message
@@ -50,6 +51,7 @@ wsServer.on('request', function (request) {
                 }
 
                 //toggling an item, then push to all clients
+                console.log(request)
                 toggleTrackerData(trackerKey, parseInt(request.player), parseInt(request.item))   
                 jsonResponse = getTrackerDataForKey(trackerKey)
                 for (var i=0; i < perTrackerClients[trackerKey].length; i++) {                    
@@ -61,7 +63,17 @@ wsServer.on('request', function (request) {
 
     connection.on('close', function (connection) {
         // close user connection
+        console.log("closing connection...")
         clients.splice(index, 1);
+        
+        for (const [key, value] of Object.entries(perTrackerClients)) {
+            for (var i = 0; i < perTrackerClients[key].length; i++) {
+                if(perTrackerClients[key][i] === this) {
+                    perTrackerClients[key].splice(i, 1);
+                    return;
+                }
+            }    
+        }
     });
 });
 
