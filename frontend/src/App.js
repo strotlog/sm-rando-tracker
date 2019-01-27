@@ -43,17 +43,39 @@ const itemList = [
   // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
 ]
 
+const STANDARD = 1;
+const RESTREAM = 2;
+
+const InstructionComponent = (props) => {
+  return (
+    <div>
+      <fieldset>
+        <legend>Instructions:</legend>
+        <div className="instructions">
+             Enter your tracker key above, click connect.<br></br>
+            Add a website capture to your restream, one per runner<br></br>
+            send the url of the tracker (including the ?trackerKey parameter) to your loyal trackers<br></br>
+            any changes they make should be reflected in your restreamed tracker<br></br>
+            if the restreamed tracker isn't showing up, click hide all the trackers, and then wait a few seconds, and show them.  This will refresh the page the restream is using.
+          </div>
+      </fieldset>
+    </div>
+  );
+}
 
 class App extends ReactQueryParams  {
 
   constructor(props) {
     super(props)
     let trackerKeyParam = this.queryParams.trackerKey;
-    
+    let restreamPlayerParam = this.queryParams.restreamedPlayer
+
     this.state = {
       socket: undefined,
       playerInventory: [0,0,0,0],
-      trackerKey: trackerKeyParam
+      trackerKey: trackerKeyParam,
+      displayMode: STANDARD,
+      restreamPlayer: 0
     }
     
     this.updateInventory = this.updateInventory.bind(this);
@@ -67,6 +89,13 @@ class App extends ReactQueryParams  {
         let trackerWebsocket = this.connectToWebsocket(trackerKeyParam)
         this.state.socket = trackerWebsocket
     }
+
+    if (restreamPlayerParam !== undefined) {
+      this.state.displayMode = RESTREAM;
+      this.state.restreamPlayer = parseInt(restreamPlayerParam);
+    }
+
+    setInterval(this.checkWebSocketConnection, 5000);
 
   }
  
@@ -155,35 +184,33 @@ class App extends ReactQueryParams  {
     return (
       <div className="App">
         <header className="App-header">
-          <TrackerKeyInput onConnect={this.connectToNewTrackerKey} trackerKey={this.state.trackerKey}/>
-          {/* This will display the connection status, hopefully we don't need it. */}          
+
+        {this.state.displayMode === STANDARD ? <TrackerKeyInput onConnect={this.connectToNewTrackerKey} trackerKey={this.state.trackerKey}/> : null}
+          {/* This will display the connection status, hopefully we don't need it. */}
+          {/* <ConnectionStatus connected={this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN}/> */}
           <div className="allTrackers">
-            {this.state.playerInventory.map((inventory, i) =>
-               <div key={i} className="trackerContainer">              
-                <Tracker key={i} itemList={itemList} trackerTitle={"Player " + (i+1)} playerIndex={i} inventory={inventory} updateInventory={this.updateInventory}/> 
-               </div>
+            {this.state.playerInventory.map((inventory, i) =>    
+                <Tracker 
+                    key={i} 
+                    itemList={itemList} 
+                    trackerTitle={"Player " + (i+1)} 
+                    playerIndex={i} 
+                    inventory={inventory} 
+                    updateInventory={this.updateInventory} 
+                    restreamPlayer={this.state.restreamPlayer} 
+                    displayMode={this.state.displayMode} 
+                    trackerKey={this.state.trackerKey}
+                    />                
               )}            
           </div> 
-          <button onClick={this.clearInventories}>Clear Inventories</button>
+          {this.state.displayMode === STANDARD ? <button onClick={this.clearInventories}>Clear Inventories</button> : null }
           {/* NYI - might be nice to be able to add more trackers */}
           {/* <button onClick={this.addPlayer}>Add Player</button> */}
 
           {/* I use this button to test the websocket disconnecting */}
           {/* <button onClick={this.simulateWebSocketDc}>Disconnect!</button> */}
-          <ConnectionStatus connected={this.state.socket !== null && this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN}/>    
-          <div>
-            <fieldset>
-              <legend>Instructions:</legend>
-              <div className="instructions">
-                Enter your tracker key above, click connect.<br></br>
-                Add a website capture to your restream, one per runner<br></br>
-                send the url of the tracker (including the ?trackerKey parameter) to your loyal trackers<br></br>
-                any changes they make should be reflected in your restreamed tracker<br></br>
-                if the restreamed tracker isn't showing up, click hide all the trackers, and then wait a few seconds, and show them.  This will refresh the page the restream is using.
-
-                </div>
-            </fieldset>
-          </div>
+          {this.state.displayMode === STANDARD ? <InstructionComponent /> : null}
+          
         </header>
       </div>
     );
