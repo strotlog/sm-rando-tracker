@@ -53,10 +53,11 @@ wsServer.on('request', function (request) {
                 //toggling an item, then push to all clients
                 console.log(request)
                 toggleTrackerData(trackerKey, parseInt(request.player), parseInt(request.item))   
-                jsonResponse = getTrackerDataForKey(trackerKey)
-                for (var i=0; i < perTrackerClients[trackerKey].length; i++) {                    
-                    perTrackerClients[trackerKey][i].sendUTF(jsonResponse);
-                }             
+                jsonResponse = getTrackerDataForKey(trackerKey);
+                perTrackerClients[trackerKey].map((connection) => {
+                    connection.sendUTF(jsonResponse);
+                    return true;
+                })                         
             }             
         }
     });

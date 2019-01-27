@@ -5,11 +5,12 @@ import './items.css';
 
 import TrackerKeyInput from   './components/trackerKeyInput'
 import Tracker from           './components/tracker'
-// import ConnectionStatus from  './components/connectionStatus'
+import ConnectionStatus from  './components/connectionStatus'
 
 const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
 // const webSocketLocation = 'wss://sm-rando-tracker-staging.herokuapp.com/api'
 // const webSocketLocation = 'ws://localhost:3000/api'
+// const webSocketLocation = 'ws://localhost:1337'
 
 const itemList = [
 
@@ -60,7 +61,6 @@ class App extends ReactQueryParams  {
     this.clearInventories = this.clearInventories.bind(this);
     this.connectToNewTrackerKey = this.connectToNewTrackerKey.bind(this);
     this.simulateWebSocketDc = this.simulateWebSocketDc.bind(this)
-    this.checkWebSocketConnection = this.checkWebSocketConnection.bind(this)
     this.addPlayer = this.addPlayer.bind(this);
 
     if (trackerKeyParam !== undefined) {
@@ -68,20 +68,8 @@ class App extends ReactQueryParams  {
         this.state.socket = trackerWebsocket
     }
 
-    // setInterval(this.checkWebSocketConnection, 5000);
-
   }
  
-  checkWebSocketConnection() {
-    if (this.state.trackerKey === undefined || (this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN)) {
-        //everything is a-ok!
-        return;
-    }
-
-    //we've dropped, let's reconnect
-    this.connectToNewTrackerKey(this.state.trackerKey);
-  }
-
   clearInventories() {
     
     this.state.playerInventory.map((inventory, playerIndex) => {
@@ -106,14 +94,18 @@ class App extends ReactQueryParams  {
 
   connectToWebsocket(newTrackerKey){
 
-    if (this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN) {
-      //do nothing already connected
-      return
+    if (this.state.socket !== null && this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN) {
+      //do nothing already connected    
+      return this.state.socket;
     }
 
     let trackerWebsocket = new WebSocket(webSocketLocation)
     trackerWebsocket.onopen = () => {
       trackerWebsocket.send(newTrackerKey)
+      if (this.timerId) {
+        clearInterval(this.timerId)
+        this.timerId = undefined
+      }
     }
 
     trackerWebsocket.onmessage = (message) => {
@@ -127,18 +119,29 @@ class App extends ReactQueryParams  {
       }))
     }
 
+    trackerWebsocket.onclose = (event) => {
+      if(!this.timerId){
+        this.setState({socket: null})
+        this.timerId =  setInterval(() => {
+          let newWs = this.connectToWebsocket(newTrackerKey)
+          this.setState({socket: newWs})
+        }, 5000)
+      }
+    }
+
 
     return trackerWebsocket;
   }
 
   updateInventory(playerIndex, item, value) {
-    if (this.state.socket === undefined) {
+    if (this.state.socket === undefined || this.state.socket === null) {
       return;
     }
 
     if (this.state.socket.readyState !== this.state.socket.OPEN) {
       //If we DC'd then reconnect.  we won't be able to update the item right away, but this will at least reconnect us.
-      this.connectToNewTrackerKey(this.state.trackerKey)
+      // this.connectToNewTrackerKey(this.state.trackerKey)
+      console.log("Websocket is not in a ready state: " + this.state.socket.readyState)
       return;
     }
     this.state.socket.send('{"player":' + playerIndex + ',"item":' + item + '}')
@@ -153,8 +156,7 @@ class App extends ReactQueryParams  {
       <div className="App">
         <header className="App-header">
           <TrackerKeyInput onConnect={this.connectToNewTrackerKey} trackerKey={this.state.trackerKey}/>
-          {/* This will display the connection status, hopefully we don't need it. */}
-          {/* <ConnectionStatus connected={this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN}/> */}
+          {/* This will display the connection status, hopefully we don't need it. */}          
           <div className="allTrackers">
             {this.state.playerInventory.map((inventory, i) =>
                <div key={i} className="trackerContainer">              
@@ -168,7 +170,7 @@ class App extends ReactQueryParams  {
 
           {/* I use this button to test the websocket disconnecting */}
           {/* <button onClick={this.simulateWebSocketDc}>Disconnect!</button> */}
-
+          <ConnectionStatus connected={this.state.socket !== null && this.state.socket !== undefined && this.state.socket.readyState === this.state.socket.OPEN}/>    
           <div>
             <fieldset>
               <legend>Instructions:</legend>
@@ -177,6 +179,8 @@ class App extends ReactQueryParams  {
                 Add a website capture to your restream, one per runner<br></br>
                 send the url of the tracker (including the ?trackerKey parameter) to your loyal trackers<br></br>
                 any changes they make should be reflected in your restreamed tracker<br></br>
+                if the restreamed tracker isn't showing up, click hide all the trackers, and then wait a few seconds, and show them.  This will refresh the page the restream is using.
+
                 </div>
             </fieldset>
           </div>
