@@ -183,7 +183,7 @@ class App extends ReactQueryParams  {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className={this.state.displayMode === STANDARD? "App-header" : "App-header single-player"}>
 
         {this.state.displayMode === STANDARD ? <TrackerKeyInput onConnect={this.connectToNewTrackerKey} trackerKey={this.state.trackerKey}/> : null}
           {/* This will display the connection status, hopefully we don't need it. */}
