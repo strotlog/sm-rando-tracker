@@ -3,7 +3,10 @@ SM Rando tracker that allows for collaborative tracking.  Broken into a frontend
 
 # running
 npm install concurrently
+
 cd backend && npm install
+
 cd frontend && npm install
+
 npm start
 
