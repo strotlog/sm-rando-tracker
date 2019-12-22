@@ -24,7 +24,7 @@ class Tracker extends React.Component {
         }
         return (
             <div className={className}>
-                {this.props.displayMode === 1 ? <a href={"?restreamedPlayer=" + this.props.playerIndex + "&trackerKey=" + this.props.trackerKey} className="trackerTitle">{this.props.trackerTitle}</a> : null}
+                {this.props.displayMode === 1 ? <a href={"?trackerType=" + this.props.trackerType + "&restreamedPlayer=" + this.props.playerIndex + "&trackerKey=" + this.props.trackerKey} className="trackerTitle">{this.props.trackerTitle}</a> : null}
                 <div className={this.props.displayMode === 1 ?"trackerBorder" : ""}>
                     <div className="trackerItems">
                         {this.props.itemList.map((item, i) =>

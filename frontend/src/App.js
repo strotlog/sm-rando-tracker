@@ -12,7 +12,43 @@ const webSocketLocation = 'wss://sm-rando-tracker.herokuapp.com/api'
 // const webSocketLocation = 'ws://localhost:3000/api'
 // const webSocketLocation = 'ws://localhost:1337'
 
-const itemList = [
+
+const itemListStandard = [
+
+  //Items are displayed in the order of this list.  collectionSlot determines which bit the item uses
+    {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
+    {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
+    {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
+    {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
+    {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
+    
+    {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:            1 << 14},
+    {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:            1 << 12},  
+    {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:  1 << 11},
+    {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:          1 << 7},
+    {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:            1 << 9},
+  
+    {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:             1 << 5},
+    {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:        1 << 13},    
+    {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
+    {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
+    {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
+  
+    
+    // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+    // {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:    1 << 19},  
+    {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},  
+    {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
+    {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
+    {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
+    {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 6},  
+    // {itemIcon:"./items/xray.png", itemName:"xray", startingState:false, collectionSlot:              1 << 6},  
+    
+    //Usable in case we want an empty spot
+    // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+  ]
+
+const itemListChozo = [
 
 //Items are displayed in the order of this list.  collectionSlot determines which bit the item uses
   {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
@@ -33,11 +69,28 @@ const itemList = [
   {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
   {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
 
-  {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},
+  
+  // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+  {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:    1 << 19},  
   {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
   {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
   {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
-  {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 20},
+  {itemIcon:"./items/xray.png", itemName:"xray", startingState:false, collectionSlot:              1 << 6},  
+
+  {itemIcon:"./items/missile.png", itemName:"missile1", startingState:false, collectionSlot:       1 << 21},
+  {itemIcon:"./items/super.png", itemName:"super1", startingState:false, collectionSlot:           1 << 23},
+  {itemIcon:"./items/pbomb.png", itemName:"pbomb", startingState:false, collectionSlot:            1 << 24},
+  {itemIcon:"./items/super.png", itemName:"super1", startingState:false, collectionSlot:           1 << 27},
+  {itemIcon:"./items/missile.png", itemName:"missile2", startingState:false, collectionSlot:       1 << 22},
+
+  
+  {itemIcon:"./items/etank.png", itemName:"etank1", startingState:false, collectionSlot:           1 << 28},
+  {itemIcon:"./items/etank.png", itemName:"etank2", startingState:false, collectionSlot:           1 << 29},
+  {itemIcon:"./items/etank.png", itemName:"etank3", startingState:false, collectionSlot:           1 << 30},
+  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:                0},  
+  {itemIcon:"./items/reserve.png", itemName:"reserve", startingState:false, collectionSlot:        1 << 26},
+
+
   
   //Usable in case we want an empty spot
   // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
@@ -45,6 +98,7 @@ const itemList = [
 
 const STANDARD = 1;
 const RESTREAM = 2;
+const CHOZO = 3;
 
 const InstructionComponent = (props) => {
   return (
@@ -70,12 +124,28 @@ class App extends ReactQueryParams  {
     let trackerKeyParam = this.queryParams.trackerKey;
     let restreamPlayerParam = this.queryParams.restreamedPlayer
 
+    let trackerTypeParam = this.queryParams.trackerType
+    
+
+    var itemList = itemListStandard;
+    var trackerTypeInt;
+    if (trackerTypeParam !== undefined) {
+      trackerTypeInt = parseInt(trackerTypeParam)
+      if (trackerTypeInt === CHOZO){
+          itemList = itemListChozo
+      }
+    } else {
+        trackerTypeInt = STANDARD
+    }
+
     this.state = {
       socket: undefined,
       playerInventory: [0,0,0,0],
       trackerKey: trackerKeyParam,
       displayMode: STANDARD,
-      restreamPlayer: 0
+      trackerType: trackerTypeInt,
+      restreamPlayer: 0,
+      itemList: itemList
     }
     
     this.updateInventory = this.updateInventory.bind(this);
@@ -84,6 +154,9 @@ class App extends ReactQueryParams  {
     this.connectToNewTrackerKey = this.connectToNewTrackerKey.bind(this);
     this.simulateWebSocketDc = this.simulateWebSocketDc.bind(this)
     this.addPlayer = this.addPlayer.bind(this);
+    
+    this.switchToChozo = this.switchToChozo.bind(this)
+    this.switchToStandard = this.switchToStandard.bind(this)
 
     if (trackerKeyParam !== undefined) {
         let trackerWebsocket = this.connectToWebsocket(trackerKeyParam)
@@ -94,9 +167,6 @@ class App extends ReactQueryParams  {
       this.state.displayMode = RESTREAM;
       this.state.restreamPlayer = parseInt(restreamPlayerParam);
     }
-
-    setInterval(this.checkWebSocketConnection, 5000);
-
   }
  
   clearInventories() {
@@ -180,6 +250,23 @@ class App extends ReactQueryParams  {
     this.state.socket.close()
   }
 
+  switchToChozo() {
+    this.setState({
+      itemList: itemListChozo,
+      trackerType: CHOZO
+    })
+    this.setQueryParams({ trackerType:CHOZO });
+  }
+
+  switchToStandard() {
+    this.setState({
+      itemList: itemListStandard,
+      trackerType: STANDARD
+    })
+    this.setQueryParams({ trackerType:STANDARD });
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -192,7 +279,7 @@ class App extends ReactQueryParams  {
             {this.state.playerInventory.map((inventory, i) =>    
                 <Tracker 
                     key={i} 
-                    itemList={itemList} 
+                    itemList={this.state.itemList} 
                     trackerTitle={"Player " + (i+1)} 
                     playerIndex={i} 
                     inventory={inventory} 
@@ -200,10 +287,13 @@ class App extends ReactQueryParams  {
                     restreamPlayer={this.state.restreamPlayer} 
                     displayMode={this.state.displayMode} 
                     trackerKey={this.state.trackerKey}
+                    trackerType={this.state.trackerType}
                     />                
               )}            
           </div> 
-          {this.state.displayMode === STANDARD ? <button onClick={this.clearInventories}>Clear Inventories</button> : null }
+          {this.state.displayMode === STANDARD && this.state.trackerKey !== undefined ? <button onClick={this.clearInventories}>Clear Inventories</button> : null }
+          {this.state.displayMode === STANDARD && this.state.trackerType === CHOZO ? <button onClick={this.switchToStandard}>Switch to Standard Rando</button> : null}
+          {this.state.displayMode === STANDARD && this.state.trackerType === STANDARD ? <button onClick={this.switchToChozo}>Switch to Chozo Rando</button> : null}
           {/* NYI - might be nice to be able to add more trackers */}
           {/* <button onClick={this.addPlayer}>Add Player</button> */}
 
