@@ -33,11 +33,29 @@ const itemList = [
   {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
   {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
 
-  {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},
+  
+  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+  // {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},
   {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
   {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
   {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
-  {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 20},
+  // {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 20},
+  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+
+  {itemIcon:"./items/missile.png", itemName:"missile1", startingState:false, collectionSlot:             1 << 21},
+  {itemIcon:"./items/super.png", itemName:"super1", startingState:false, collectionSlot:             1 << 23},
+  {itemIcon:"./items/pbomb.png", itemName:"pbomb", startingState:false, collectionSlot:             1 << 24},
+  {itemIcon:"./items/super.png", itemName:"super1", startingState:false, collectionSlot:             1 << 27},
+  {itemIcon:"./items/missile.png", itemName:"missile2", startingState:false, collectionSlot:             1 << 22},
+
+  
+  {itemIcon:"./items/etank.png", itemName:"etank1", startingState:false, collectionSlot:             1 << 28},
+  {itemIcon:"./items/etank.png", itemName:"etank2", startingState:false, collectionSlot:             1 << 29},
+  {itemIcon:"./items/etank.png", itemName:"etank3", startingState:false, collectionSlot:             1 << 30},
+  {itemIcon:"./items/etank.png", itemName:"etank4", startingState:false, collectionSlot:             1 << 19},
+  {itemIcon:"./items/reserve.png", itemName:"reserve", startingState:false, collectionSlot:             1 << 26},
+
+
   
   //Usable in case we want an empty spot
   // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
@@ -94,9 +112,6 @@ class App extends ReactQueryParams  {
       this.state.displayMode = RESTREAM;
       this.state.restreamPlayer = parseInt(restreamPlayerParam);
     }
-
-    setInterval(this.checkWebSocketConnection, 5000);
-
   }
  
   clearInventories() {
