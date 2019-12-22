@@ -35,13 +35,13 @@ const itemList = [
 
   
   // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
-  {itemIcon:"./items/xray.png", itemName:"spacer", startingState:false, collectionSlot:    1 << 6},  
+  {itemIcon:"./items/grappling.png", itemName:"spacer", startingState:false, collectionSlot:    1 << 19},  
   // {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},
   {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
   {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
   {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
   // {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 20},
-  {itemIcon:"./items/grappling.png", itemName:"spacer", startingState:false, collectionSlot:    1 << 19},  
+  {itemIcon:"./items/xray.png", itemName:"spacer", startingState:false, collectionSlot:    1 << 6},  
 
   {itemIcon:"./items/missile.png", itemName:"missile1", startingState:false, collectionSlot:             1 << 21},
   {itemIcon:"./items/super.png", itemName:"super1", startingState:false, collectionSlot:             1 << 23},
