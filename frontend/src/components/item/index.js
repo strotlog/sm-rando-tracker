@@ -29,7 +29,7 @@ class Item extends React.Component {
     render() {
         return (
             <div className="item" onClick={this.handleClick}>
-                <img className={this.props.collected?this.toggledClass:this.initialClass} src={this.state.itemIcon} alt={this.state.itemName} />
+                <img className={this.props.collected?this.toggledClass:this.initialClass} src={this.props.itemIcon} alt={this.props.itemName} />
             </div>
         )
     }
