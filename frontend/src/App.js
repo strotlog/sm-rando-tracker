@@ -52,7 +52,7 @@ const itemList = [
   {itemIcon:"./items/etank.png", itemName:"etank1", startingState:false, collectionSlot:             1 << 28},
   {itemIcon:"./items/etank.png", itemName:"etank2", startingState:false, collectionSlot:             1 << 29},
   {itemIcon:"./items/etank.png", itemName:"etank3", startingState:false, collectionSlot:             1 << 30},
-  {itemIcon:"./items/etank.png", itemName:"etank4", startingState:false, collectionSlot:             1 << 19},
+  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
   {itemIcon:"./items/reserve.png", itemName:"reserve", startingState:false, collectionSlot:             1 << 26},
 
 
