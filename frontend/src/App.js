@@ -16,93 +16,102 @@ const webSocketLocation = 'wss://sm-rando-tracker.onrender.com/api'
 const itemListStandard = [
 
   //Items are displayed in the order of this list.  collectionSlot determines which bit the item uses
-    {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
-    {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
-    {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
-    {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
-    {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
+    {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:           1 << 0},
+    {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                 1 << 1},
+    {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:               1 << 2},
+    {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:           1 << 3},
+    {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:           1 << 4},
+    {itemIcon:"./items/hypercharge.png", itemName:"hypercharge", startingState:false, collectionSlot: 1 << 20},
     
-    {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:            1 << 14},
-    {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:            1 << 12},  
-    {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:  1 << 11},
-    {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:          1 << 7},
-    {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:            1 << 9},
+    {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:             1 << 14},
+    {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:             1 << 12},  
+    {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:   1 << 11},
+    {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:           1 << 7},
+    {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:             1 << 9},
+    {itemIcon:"./items/gravboots.png", itemName:"gravboots", startingState:false, collectionSlot:     1 << 25},
   
-    {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:             1 << 5},
-    {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:        1 << 13},    
-    {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
-    {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
-    {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
+    {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:              1 << 5},
+    {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:         1 << 13},    
+    {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:           1 << 18},
+    {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:             1 << 10},
+    {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:             1 << 8},
+    {itemIcon:"./items/metroidsuit.png", itemName:"metroidsuit", startingState:false, collectionSlot: 1 << 30},
   
     
     // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
     // {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:    1 << 19},  
-    {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},  
-    {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
-    {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
-    {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
-    {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 6},  
+    {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:     1 << 19},  
+    {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:              1 << 15},
+    {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:       1 << 16},
+    {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:         1 << 17},
+    {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:       1 << 6},  
     // {itemIcon:"./items/xray.png", itemName:"xray", startingState:false, collectionSlot:              1 << 6},  
     
     //Usable in case we want an empty spot
-    // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+    {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
   ]
 
   const itemListArea = [
 
     //Items are displayed in the order of this list.  collectionSlot determines which bit the item uses
-      {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
-      {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
-      {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
-      {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
-      {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
+      {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:           1 << 0},
+      {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                 1 << 1},
+      {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:               1 << 2},
+      {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:           1 << 3},
+      {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:           1 << 4},  
+      {itemIcon:"./items/hypercharge.png", itemName:"hypercharge", startingState:false, collectionSlot: 1 << 20},
       
-      {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:            1 << 14},
-      {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:            1 << 12},  
-      {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:  1 << 11},
-      {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:          1 << 7},
-      {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:            1 << 9},
+      {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:             1 << 14},
+      {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:             1 << 12},  
+      {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:   1 << 11},
+      {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:           1 << 7},
+      {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:             1 << 9},
+      {itemIcon:"./items/gravboots.png", itemName:"gravboots", startingState:false, collectionSlot:     1 << 25},
     
-      {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:             1 << 5},
-      {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:        1 << 13},    
-      {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
-      {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
-      {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
+      {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:              1 << 5},
+      {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:         1 << 13},    
+      {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:           1 << 18},
+      {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:             1 << 10},
+      {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:             1 << 8},
+      {itemIcon:"./items/metroidsuit.png", itemName:"metroidsuit", startingState:false, collectionSlot: 1 << 30},
     
       
       // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
-      {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:    1 << 19},  
-      // {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:    1 << 19},  
-      {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:             1 << 15},
-      {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:      1 << 16},
-      {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:        1 << 17},
-      // {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:      1 << 6},  
-      {itemIcon:"./items/xray.png", itemName:"xray", startingState:false, collectionSlot:              1 << 6},  
+      {itemIcon:"./items/grappling.png", itemName:"grappling", startingState:false, collectionSlot:     1 << 19},  
+      // {itemIcon:"./items/crocomire.png", itemName:"crocomire", startingState:false, collectionSlot:     1 << 19},  
+      {itemIcon:"./items/kraid.png", itemName:"kraid", startingState:true, collectionSlot:              1 << 15},
+      {itemIcon:"./items/phantoon.png", itemName:"phantoon", startingState:true,  collectionSlot:       1 << 16},
+      {itemIcon:"./items/draygon.png", itemName:"draygon", startingState:true,  collectionSlot:         1 << 17},
+      // {itemIcon:"./items/shaktool.gif", itemName:"shaktool", startingState:false, collectionSlot:       1 << 6},  
+      {itemIcon:"./items/xray.png", itemName:"xray", startingState:false, collectionSlot:               1 << 6},  
       
       //Usable in case we want an empty spot
-      // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+      {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
     ]
 
 const itemListChozo = [
 
 //Items are displayed in the order of this list.  collectionSlot determines which bit the item uses
-  {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:          1 << 0},
-  {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                1 << 1},
-  {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:              1 << 2},
-  {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:          1 << 3},
-  {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:          1 << 4},  
+  {itemIcon:"./items/charge.png", itemName:"charge", startingState:false, collectionSlot:           1 << 0},
+  {itemIcon:"./items/ice.png", itemName:"ice", startingState:false, collectionSlot:                 1 << 1},
+  {itemIcon:"./items/wave.png", itemName:"wave", startingState:false, collectionSlot:               1 << 2},
+  {itemIcon:"./items/spazer.png", itemName:"spazer", startingState:false, collectionSlot:           1 << 3},
+  {itemIcon:"./items/plasma.png", itemName:"plasma", startingState:false, collectionSlot:           1 << 4},  
+  {itemIcon:"./items/hypercharge.png", itemName:"hypercharge", startingState:false, collectionSlot: 1 << 20},
   
-  {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:            1 << 14},
-  {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:            1 << 12},  
-  {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:  1 << 11},
-  {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:          1 << 7},
-  {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:            1 << 9},
+  {itemIcon:"./items/morph.png", itemName:"morph", startingState:false, collectionSlot:             1 << 14},
+  {itemIcon:"./items/varia.png", itemName:"varia", startingState:false, collectionSlot:             1 << 12},  
+  {itemIcon:"./items/springball.png", itemName:"springball", startingState:false, collectionSlot:   1 << 11},
+  {itemIcon:"./items/hijump.png", itemName:"hijump", startingState:false, collectionSlot:           1 << 7},
+  {itemIcon:"./items/space.png", itemName:"space", startingState:false, collectionSlot:             1 << 9},
+  {itemIcon:"./items/gravboots.png", itemName:"gravboots", startingState:false, collectionSlot:     1 << 25},
 
-  {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:             1 << 5},
-  {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:        1 << 13},    
-  {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:          1 << 18},
-  {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:            1 << 10},
-  {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:            1 << 8},
+  {itemIcon:"./items/bomb.png", itemName:"bombs", startingState:false, collectionSlot:              1 << 5},
+  {itemIcon:"./items/gravity.png", itemName:"gravity", startingState:false, collectionSlot:         1 << 13},    
+  {itemIcon:"./items/ridley.png", itemName:"ridley", startingState:true,  collectionSlot:           1 << 18},
+  {itemIcon:"./items/speed.png", itemName:"speed", startingState:false, collectionSlot:             1 << 10},
+  {itemIcon:"./items/screw.png", itemName:"screw", startingState:false, collectionSlot:             1 << 8},
+  {itemIcon:"./items/metroidsuit.png", itemName:"metroidsuit", startingState:false, collectionSlot: 1 << 30},
 
   
   // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
@@ -121,14 +130,15 @@ const itemListChozo = [
   
   {itemIcon:"./items/etank.png", itemName:"etank1", startingState:false, collectionSlot:           1 << 28},
   {itemIcon:"./items/etank.png", itemName:"etank2", startingState:false, collectionSlot:           1 << 29},
-  {itemIcon:"./items/etank.png", itemName:"etank3", startingState:false, collectionSlot:           1 << 30},
+  // remove an E tank due to too many item bits needed! chozo does not exist for subversion
+  // {itemIcon:"./items/etank.png", itemName:"etank3", startingState:false, collectionSlot:           1 << 30},
   {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:                0},  
   {itemIcon:"./items/reserve.png", itemName:"reserve", startingState:false, collectionSlot:        1 << 26},
 
 
   
   //Usable in case we want an empty spot
-  // {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
+  {itemIcon:"./items/spacer.png", itemName:"spacer", startingState:false, collectionSlot:    0},  
 ]
 
 const STANDARD = 1;
@@ -146,7 +156,8 @@ const InstructionComponent = (props) => {
             Add a website capture to your restream, one per runner<br></br>
             send the url of the tracker (including the ?trackerKey parameter) to your loyal trackers<br></br>
             any changes they make should be reflected in your restreamed tracker<br></br>
-            if the restreamed tracker isn't showing up, click hide all the trackers, and then wait a few seconds, and show them.  This will refresh the page the restream is using.
+            if the restreamed tracker isn't showing up, click hide all the trackers, and then wait a few seconds, and show them.  This will refresh the page the restream is using.<br></br>
+            <strong>Code and live data generously provided by Rumbleminze</strong>
           </div>
       </fieldset>
     </div>
